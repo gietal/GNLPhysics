@@ -10,7 +10,7 @@ import SpriteKit
 import GNLPhysics
 
 class GameObject {
-    var body: Body = Body()
+    var body: VerletBody = VerletBody()
     var shape: SKShapeNode
     
     init(shape: SKShapeNode) {
@@ -52,14 +52,9 @@ class ViewController: NSViewController {
     }
     
     fileprivate var lastUpdateTime: TimeInterval = .zero
-    fileprivate let integrator = EulerIntegration()
+    fileprivate let integrator = VerletIntegration()
 }
 
-extension CGPoint {
-    public init(_ vec2: Vec2) {
-        self.init(x: CGFloat(vec2.x), y: CGFloat(vec2.y))
-    }
-}
 
 extension ViewController: SKSceneDelegate {
     func update(_ currentTime: TimeInterval, for scene: SKScene) {
@@ -72,7 +67,7 @@ extension ViewController: SKSceneDelegate {
         
         lastUpdateTime = currentTime
         
-        let gravity = Vec2(x: 0, y: -10) // assumes all object mass are the same = 1
+        let gravity = Vec2(x: 0, y: -100) // assumes all object mass are the same = 1
         
         for obj in gameObjects {
             // add gravity

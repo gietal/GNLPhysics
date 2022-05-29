@@ -12,6 +12,8 @@
 		88FD86AD284365C8000105EA /* GNLPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FD86A1284365C8000105EA /* GNLPhysics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88FD86DB28436D73000105EA /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86DA28436D73000105EA /* Shape.swift */; };
 		88FD86DD28436E49000105EA /* EulerIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86DC28436E49000105EA /* EulerIntegration.swift */; };
+		88FD86DF284434B6000105EA /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86DE284434B6000105EA /* Vec2.swift */; };
+		88FD86E128443511000105EA /* VerletIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86E028443511000105EA /* VerletIntegration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		88FD86D128436723000105EA /* Demo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Demo.xcodeproj; path = ../Demo/Demo.xcodeproj; sourceTree = "<group>"; };
 		88FD86DA28436D73000105EA /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		88FD86DC28436E49000105EA /* EulerIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulerIntegration.swift; sourceTree = "<group>"; };
+		88FD86DE284434B6000105EA /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec2.swift; sourceTree = "<group>"; };
+		88FD86E028443511000105EA /* VerletIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerletIntegration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				88FD86A1284365C8000105EA /* GNLPhysics.h */,
 				88FD86DA28436D73000105EA /* Shape.swift */,
 				88FD86DC28436E49000105EA /* EulerIntegration.swift */,
+				88FD86DE284434B6000105EA /* Vec2.swift */,
+				88FD86E028443511000105EA /* VerletIntegration.swift */,
 			);
 			path = GNLPhysics;
 			sourceTree = "<group>";
@@ -231,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FD86E128443511000105EA /* VerletIntegration.swift in Sources */,
 				88FD86DD28436E49000105EA /* EulerIntegration.swift in Sources */,
+				88FD86DF284434B6000105EA /* Vec2.swift in Sources */,
 				88FD86DB28436D73000105EA /* Shape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

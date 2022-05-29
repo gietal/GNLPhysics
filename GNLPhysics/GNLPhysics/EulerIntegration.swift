@@ -7,23 +7,6 @@
 
 import Foundation
 
-public func / (scalar: Float, vec: Vec2) -> Vec2 {
-    return Vec2(x: scalar / vec.x, y: scalar / vec.y)
-}
-public func / (vec: Vec2, scalar: Float) -> Vec2 {
-    return Vec2(x: vec.x / scalar, y: vec.y / scalar)
-}
-public func * (vec: Vec2, scalar: Float) -> Vec2 {
-    return Vec2(x: vec.x * scalar, y: vec.y * scalar)
-}
-public func + (left: Vec2, right: Vec2) -> Vec2 {
-    return Vec2(x: left.x + right.x, y: left.y + right.y)
-}
-
-public func += (left: inout Vec2, right: Vec2) {
-    left = left + right
-}
-
 public class EulerIntegration {
     public init() {
         
