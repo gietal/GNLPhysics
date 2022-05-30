@@ -17,6 +17,13 @@ public struct Vec2: Equatable {
         self.x = x
         self.y = y
     }
+    
+    public func lengthSquared() -> Float {
+        return x*x + y*y
+    }
+    public func length() -> Float {
+        return sqrtf(lengthSquared())
+    }
 }
 
 public func / (scalar: Float, vec: Vec2) -> Vec2 {

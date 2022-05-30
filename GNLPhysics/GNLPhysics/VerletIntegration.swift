@@ -17,6 +17,11 @@ public struct VerletBody {
     public init() {
         
     }
+    
+    public mutating func setInitialPosition(_ pos: Vec2) {
+        position = pos
+        oldPosition = pos
+    }
 }
 
 

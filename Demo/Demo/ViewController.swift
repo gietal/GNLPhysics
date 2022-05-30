@@ -22,6 +22,7 @@ class ViewController: NSViewController {
 
     @IBOutlet var skView: SKView!
     var gameObjects = [GameObject]()
+    let border = SKShapeNode(circleOfRadius: 300)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,17 @@ class ViewController: NSViewController {
         
         let circle = GameObject(shape: SKShapeNode(circleOfRadius: 10))
         circle.shape.fillColor = NSColor.red
+        circle.body.setInitialPosition(Vec2(x: 100, y: 0))
         gameObjects.append(circle)
+        
+        border.fillColor = .clear
+        border.strokeColor = .white
+        border.lineWidth = 5
         
         scene.camera = camera
         scene.addChild(camera)
         scene.addChild(circle.shape)
+        scene.addChild(border)
         
         skView.presentScene(scene)
     }
@@ -55,6 +62,11 @@ class ViewController: NSViewController {
     fileprivate let integrator = VerletIntegration()
 }
 
+extension SKShapeNode {
+    var radius: CGFloat {
+        return path?.boundingBox.width ?? 0 / 2
+    }
+}
 
 extension ViewController: SKSceneDelegate {
     func update(_ currentTime: TimeInterval, for scene: SKScene) {
@@ -67,17 +79,46 @@ extension ViewController: SKSceneDelegate {
         
         lastUpdateTime = currentTime
         
-        let gravity = Vec2(x: 0, y: -100) // assumes all object mass are the same = 1
         
+        
+        // should this logic be on the demo? or should it be on its own class 'PhysicsScene' maybe
+        applyGravity()
+        applyConstraints()
+        updatePositions(dt)
+    }
+    
+    func applyGravity() {
+        let gravity = Vec2(x: 0, y: -100) // assumes all object mass are the same = 1
         for obj in gameObjects {
             // add gravity
             obj.body.accumulatedForce += gravity
-            integrator.update(dt: Float(dt), body: &obj.body)
+        }
+    }
+    
+    func applyConstraints() {
+        // let's constraint it to the center of the screen, with radius of 300
+        let origin = Vec2.zero
+        let constraintRadius: CGFloat = 300
+        
+        for obj in gameObjects {
+            // get distance from current position to the origin
+            let displacement = obj.body.position - origin
+            let distance = displacement.length()
             
-            // reset
-            if obj.body.position.y < -300 {
-                obj.body.position.y = 300
+            let maxDistance = constraintRadius - obj.shape.radius
+            if CGFloat(distance) > maxDistance {
+                // apply constraint along the normal vector
+                let n = displacement / distance
+                obj.body.position = origin + n * Float(maxDistance)
             }
+            
+        }
+    }
+    
+    func updatePositions(_ dt: Double) {
+        for obj in gameObjects {
+            // update physics body position
+            integrator.update(dt: Float(dt), body: &obj.body)
             
             // update graphics
             obj.shape.position = CGPoint(obj.body.position)
