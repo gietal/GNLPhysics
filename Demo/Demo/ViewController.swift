@@ -22,7 +22,7 @@ class ViewController: NSViewController {
 
     @IBOutlet var skView: SKView!
     var gameObjects = [GameObject]()
-    let border = SKShapeNode(circleOfRadius: 300)
+    let border = SKShapeNode(circleOfRadius: 200)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +43,12 @@ class ViewController: NSViewController {
         
         let circle = GameObject(shape: SKShapeNode(circleOfRadius: 10))
         circle.shape.fillColor = NSColor.red
-        circle.body.setInitialPosition(Vec2(x: 100, y: 0))
+        circle.body.setInitialPosition(Vec2(x: 150, y: 0))
         gameObjects.append(circle)
         
         border.fillColor = .clear
         border.strokeColor = .white
-        border.lineWidth = 5
+        border.lineWidth = 1
         
         scene.camera = camera
         scene.addChild(camera)
@@ -64,7 +64,7 @@ class ViewController: NSViewController {
 
 extension SKShapeNode {
     var radius: CGFloat {
-        return path?.boundingBox.width ?? 0 / 2
+        return (path?.boundingBox.width ?? 0.0) / 2.0
     }
 }
 
@@ -98,7 +98,7 @@ extension ViewController: SKSceneDelegate {
     func applyConstraints() {
         // let's constraint it to the center of the screen, with radius of 300
         let origin = Vec2.zero
-        let constraintRadius: CGFloat = 300
+        let constraintRadius = border.radius
         
         for obj in gameObjects {
             // get distance from current position to the origin
