@@ -14,6 +14,7 @@
 		88FD86DD28436E49000105EA /* EulerIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86DC28436E49000105EA /* EulerIntegration.swift */; };
 		88FD86DF284434B6000105EA /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86DE284434B6000105EA /* Vec2.swift */; };
 		88FD86E128443511000105EA /* VerletIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86E028443511000105EA /* VerletIntegration.swift */; };
+		88FD86E32845C28E000105EA /* Collision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD86E22845C28E000105EA /* Collision.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		88FD86DC28436E49000105EA /* EulerIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulerIntegration.swift; sourceTree = "<group>"; };
 		88FD86DE284434B6000105EA /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec2.swift; sourceTree = "<group>"; };
 		88FD86E028443511000105EA /* VerletIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerletIntegration.swift; sourceTree = "<group>"; };
+		88FD86E22845C28E000105EA /* Collision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collision.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				88FD86DC28436E49000105EA /* EulerIntegration.swift */,
 				88FD86DE284434B6000105EA /* Vec2.swift */,
 				88FD86E028443511000105EA /* VerletIntegration.swift */,
+				88FD86E22845C28E000105EA /* Collision.swift */,
 			);
 			path = GNLPhysics;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FD86E32845C28E000105EA /* Collision.swift in Sources */,
 				88FD86E128443511000105EA /* VerletIntegration.swift in Sources */,
 				88FD86DD28436E49000105EA /* EulerIntegration.swift in Sources */,
 				88FD86DF284434B6000105EA /* Vec2.swift in Sources */,

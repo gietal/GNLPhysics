@@ -42,6 +42,10 @@ public func - (left: Vec2, right: Vec2) -> Vec2 {
     return Vec2(x: left.x - right.x, y: left.y - right.y)
 }
 
+public prefix func - (vec: Vec2) -> Vec2 {
+    return Vec2(x: -vec.x, y: -vec.y)
+}
+
 public func += (left: inout Vec2, right: Vec2) {
     left = left + right
 }
